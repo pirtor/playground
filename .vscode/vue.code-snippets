@@ -1,0 +1,20 @@
+{
+	// snippets
+	"vue template": {
+		"scope": "vue",
+		"prefix": "vue",
+		"body": [
+      "<script>",
+      "export default {",
+      "  setup() {$1},",
+      "};",
+      "</script>",
+      "",
+      "<template>",
+      "  <div>hello world</div>",
+      "</template>",
+      "",
+		],
+		"description": "template for vue single file component"
+	}
+}
