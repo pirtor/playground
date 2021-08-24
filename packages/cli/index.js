@@ -22,13 +22,13 @@ async function main() {
           {
             type: (prev) => (prev ? "text" : null),
             name: "draftsDirName",
-            message: "Drafts Name",
+            message: "Drafts Folder Name",
             validate: isValidFolderName,
           },
           {
             type: "text",
             name: "demoName",
-            message: "Project Name:",
+            message: "Demo Name:",
             validate: isInDrafts()
               ? isValidFolderName && isValidPackageName
               : null,

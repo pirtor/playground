@@ -1,9 +1,10 @@
 {
-  "name": "drafts-cli",
-  "version": "1.0.0",
+  "name": "@pirtor/create-draft",
+  "version": "0.0.4",
   "description": "cli for manage drafts",
   "main": "index.js",
   "bin": {
+    "create-draft": "index.js",
     "demo": "index.js"
   },
   "license": "MIT",
