@@ -1,0 +1,9 @@
+{
+  "name": "drafts",
+  "version": "1.0.0",
+  "description": "monorepo drafts for demos",
+  "private": true,
+  "workspaces": [
+    "*"
+  ]
+}

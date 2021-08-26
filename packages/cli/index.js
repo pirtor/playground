@@ -23,6 +23,7 @@ async function main() {
             type: (prev) => (prev ? "text" : null),
             name: "draftsDirName",
             message: "Drafts Folder Name",
+            initial: "drafts",
             validate: isValidFolderName,
           },
           {
@@ -31,7 +32,7 @@ async function main() {
             message: "Demo Name:",
             validate: isInDrafts()
               ? isValidFolderName && isValidPackageName
-              : null,
+              : isValidFolderName,
           },
           {
             type: "text",
@@ -53,12 +54,13 @@ async function main() {
       );
 
     let draftsPath = path.resolve(draftsDirName || "");
-    draftsDirName && initDrafts(draftsPath);
+    draftsDirName &&
+      copyPackage(draftsPath, path.join(__dirname, "drafts"), {
+        name: DRAFTS_NAME,
+      });
 
     let draftPath = path.join(draftsPath, demoName);
-    fs.ensureDirSync(draftPath);
-    fs.copySync(templatePath, draftPath);
-    updatePkgJson(draftPath, {
+    copyPackage(draftPath, templatePath, {
       name: `drafts-${demoName}`,
       desctription: demoDescription,
     });
@@ -154,4 +156,10 @@ function updatePkgJson(packagePath, info) {
     spaces: 2,
     EOL: "\n",
   });
+}
+
+function copyPackage(targetPath, sourcePath, pkgInfo) {
+  fs.ensureDirSync(targetPath);
+  fs.copySync(sourcePath, targetPath);
+  updatePkgJson(targetPath, pkgInfo);
 }

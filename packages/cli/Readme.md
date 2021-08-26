@@ -3,6 +3,9 @@
 
 you can just generate demos by template, or genreate a drafts folder first for manage demos with monorepo.
 
+## templates
+- **vue**: vue3 tailwindcss scss eslint prettier
+
 ## install
 
 ```bash
