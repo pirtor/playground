@@ -129,21 +129,6 @@ function getTemplates() {
   }));
 }
 
-function initDrafts(draftsPath) {
-  const pkgJson = {
-    name: DRAFTS_NAME,
-    desctription: "monorepo for manage drafts",
-    version: "1.0.0",
-    main: "index.js",
-    private: true,
-    workspaces: ["*"],
-  };
-  fs.outputJSONSync(path.join(draftsPath, "package.json"), pkgJson, {
-    EOL: "\n",
-    spaces: 2,
-  });
-}
-
 function updatePkgJson(packagePath, info) {
   const pkgJsonPath = path.join(packagePath, "package.json");
   const pkgJson = fs.readJsonSync(pkgJsonPath);
