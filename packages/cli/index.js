@@ -62,7 +62,7 @@ async function main() {
     let draftPath = path.join(draftsPath, demoName);
     copyPackage(draftPath, templatePath, {
       name: `drafts-${demoName}`,
-      desctription: demoDescription,
+      description: demoDescription,
     });
 
     console.log("finished");
